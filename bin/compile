@@ -56,16 +56,15 @@ done
 topic "Writing profile script"
 mkdir -p $BUILD_DIR/.profile.d
 cat <<EOF >$BUILD_DIR/.profile.d/000_apt.sh
-export PATH="\$HOME/.apt/usr/bin:$PATH"
-export LD_LIBRARY_PATH="\$HOME/.apt/usr/lib:\$LD_LIBRARY_PATH"
-export INCLUDE_PATH="\$HOME/.apt/usr/include:\$INCLUDE_PATH"
+export PATH="\$HOME/.apt/usr/lib/rust/rust-nightly/bin:\$HOME/.apt/usr/bin:$PATH"
+export LD_LIBRARY_PATH="\$HOME/.apt/usr/lib/rust/rust-nightly/lib:\$HOME/.apt/usr/lib:\$LD_LIBRARY_PATH"
+export INCLUDE_PATH="\$HOME/.apt/usr/lib/rust/rust-nightly/include:\$HOME/.apt/usr/include:\$INCLUDE_PATH"
 export CPATH="\$INCLUDE_PATH"
 export CPPPATH="\$INCLUDE_PATH"
 EOF
 
-topic `ls "$BUILD_DIR/.apt/usr/lib/rust/rust-nightly/bin"`
 export PATH="$BUILD_DIR/.apt/usr/lib/rust/rust-nightly/bin:$BUILD_DIR/.apt/usr/bin:$PATH"
-export LD_LIBRARY_PATH="$BUILD_DIR/.apt/usr/lib:$LD_LIBRARY_PATH"
-export INCLUDE_PATH="$BUILD_DIR/.apt/usr/include:$INCLUDE_PATH"
+export LD_LIBRARY_PATH="$BUILD_DIR/.apt/usr/lib/rust/rust-nightly/lib:$BUILD_DIR/.apt/usr/lib:$LD_LIBRARY_PATH"
+export INCLUDE_PATH="$BUILD_DIR/.apt/usr/lib/rust/rust-nightly/include:$BUILD_DIR/.apt/usr/include:$INCLUDE_PATH"
 export CPATH="$INCLUDE_PATH"
 export CPPPATH="$INCLUDE_PATH"
